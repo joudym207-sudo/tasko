@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    font-family: "Lovers Quarrel", cursive;
+    background-color: black;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(20, 20, 21);
+  text-align: center;
+}
+.container h1{
+  color: rgb(255, 255, 255);
+}
+.container p{
+  color: rgb(252, 252, 253);
+}
+
+.text{
+  border: 15px;
+  color: rgb(19, 19, 19);
+  background-color: rgb(255, 253, 253);
+}
