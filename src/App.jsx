@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css'
 import TaskCard from './components/TaskCard'
 const tasksList = [
@@ -9,7 +10,15 @@ const tasksList = [
 ];
 function App() {
   const [taskTitle, setTaskTitle] = useState('');
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+      const savedTasks = localStorage.getItem('userTasks');
+
+      return savedTasks ? JSON.parse(savedTasks): [];
+  });
+
+    useEffect(() => {
+      localStorage.setItem("userTasks", JSON.stringify(tasks));
+    }, [tasks]);
 
   function handleAddTask(e) {
     e.preventDefault();

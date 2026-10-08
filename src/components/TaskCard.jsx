@@ -15,7 +15,7 @@ export default function TaskCard({ title, subject , id , onDelete}) {
             <div className={`task-info ${iscompleted ? "completed" : ""}`}>
                 <h3>{title}</h3>
                 <button onClick={handletask} className="btn"> {iscompleted ? "Done" : "completed"}</button>
-                <button className="text-btn" onclick={() => onDelete(id)}>Delete</button>
+                <button onClick={() => onDelete(id)} className="text-btn" >Delete</button>
             </div>
         </div>
     )
