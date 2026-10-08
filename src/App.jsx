@@ -11,20 +11,28 @@ function App() {
   const [taskTitle, setTaskTitle] = useState('');
   const [tasks, setTasks] = useState([]);
 
-    function handleAddTask(e) {
-      e.preventDefault();
+  function handleAddTask(e) {
+    e.preventDefault();
 
-      if(!taskTitle.trim()) return;  
 
-      const newTasks = {
-        id: Date.now(),
-        title: taskTitle,
-        subject: "general",
-      };
-  
-      setTasks([...tasks, newTasks]);
-      setTaskTitle("");
-    }
+    if (!taskTitle.trim()) return;
+
+    const newTasks = {
+      id: Date.now(),
+      title: taskTitle,
+      subject: "general",
+    };
+
+    setTasks([...tasks, newTasks]);
+    setTaskTitle("");
+  }
+
+  function deleteTask(idToDelete) { 
+    const updatedTasks = tasks.filter((taskItem)=> 
+    taskItem.id !== idToDelete,
+  )
+    setTasks(updatedTasks);
+  } 
 
   return (
     <div className='container'>
@@ -47,6 +55,8 @@ function App() {
           key={task.id}
           title={task.title}
           subject={task.subject}
+          id= {task.id}
+          onDelete ={deleteTask}
         />
       ))}
     </div>

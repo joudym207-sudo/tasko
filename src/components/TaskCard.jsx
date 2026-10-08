@@ -1,7 +1,7 @@
 import "./TaskCard.css";
 import { useState } from "react";
 
-export default function TaskCard({ title, subject }) {
+export default function TaskCard({ title, subject , id , onDelete}) {
     const [iscompleted, setiscompleted] = useState(false);
 
     function handletask() {
@@ -15,7 +15,7 @@ export default function TaskCard({ title, subject }) {
             <div className={`task-info ${iscompleted ? "completed" : ""}`}>
                 <h3>{title}</h3>
                 <button onClick={handletask} className="btn"> {iscompleted ? "Done" : "completed"}</button>
-                <button className="text-btn">Delete</button>
+                <button className="text-btn" onclick={() => onDelete(id)}>Delete</button>
             </div>
         </div>
     )
