@@ -29,7 +29,7 @@ function App() {
     const newTasks = {
       id: Date.now(),
       title: taskTitle,
-      subject: "general",
+      // subject: "",
     };
 
     setTasks([...tasks, newTasks]);
